@@ -62,7 +62,7 @@ jobs:
             --service-name ${{ env.AWS_LIGHTSAIL_SERVICE_NAME }} \
             --containers='{
                 "${{ env.AWS_LIGHTSAIL_SERVICE_NAME }}": {
-                  "image": "${{ env.REGISTRY }}/${{ env.REPOSITORY }}:latest",
+                  "image": "${{ env.REGISTRY }}/${{ env.REPOSITORY }}:${{ github.sha }}",
                   "environment": {
                     "AWS_ACCESS_KEY_ID": "${{ secrets.AWS_ACCESS_KEY_ID }}",
                     "AWS_SECRET_ACCESS_KEY": "${{ secrets.AWS_SECRET_ACCESS_KEY }}",
