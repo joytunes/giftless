@@ -37,8 +37,6 @@ COPY . /app
 RUN pip install -e /app
 
 ARG USER_NAME=giftless
-ARG STORAGE_DIR=/lfs-storage
-ENV GIFTLESS_TRANSFER_ADAPTERS_basic_options_storage_options_path $STORAGE_DIR
 
 RUN useradd -d /app $USER_NAME
 RUN mkdir $STORAGE_DIR
@@ -55,10 +53,7 @@ WORKDIR /app
 
 ENV UWSGI_MODULE "giftless.wsgi_entrypoint"
 
-ARG PORT=5000
-EXPOSE $PORT
-
 ENTRYPOINT ["tini", "uwsgi", "--"]
 
-CMD ["-s", "127.0.0.1:${PORT}", "-M", "-T", "--threads", "2", "-p", "2", \
+CMD ["--http", "0.0.0.0:80", "-M", "-T", "--threads", "2", "-p", "2", \
      "--manage-script-name", "--callable", "app"]
