@@ -71,7 +71,8 @@ jobs:
                   "ports": {
                     "80": "HTTP"
                   }
-                }' \
+                }
+            }' \
             --public-endpoint='{
                 "containerName": "${{ env.AWS_LIGHTSAIL_SERVICE_NAME }}",
                 "containerPort": "80",
@@ -82,7 +83,8 @@ jobs:
                   "successCodes": "200",
                   "timeoutSeconds": 5,
                   "unhealthyThreshold": 2
-                }'
+                }
+            }'
       # This ugly bit is necessary if you don't want your cache to grow forever
       # until it hits GitHub's limit of 5GB.
       # Temp fix
