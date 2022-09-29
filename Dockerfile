@@ -39,8 +39,6 @@ RUN pip install -e /app
 ARG USER_NAME=giftless
 
 RUN useradd -d /app $USER_NAME
-RUN mkdir $STORAGE_DIR
-RUN chown $USER_NAME $STORAGE_DIR
 
 # Pip-install some common WSGI middleware modules
 # These are not required in every Giftless installation but are common enough
