@@ -42,6 +42,9 @@ def init_app(app=None, additional_config=None):
     # Load configured transfer adapters
     transfer.init_flask_app(app)
 
+    # Add health check
+    app.add_url_rule('/health', 'health_check', lambda: 'OK')
+
     return app
 
 
