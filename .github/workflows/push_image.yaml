@@ -65,7 +65,7 @@ jobs:
                     "AWS_ACCESS_KEY_ID": "${{ secrets.AWS_ACCESS_KEY_ID }}",
                     "AWS_SECRET_ACCESS_KEY": "${{ secrets.AWS_SECRET_ACCESS_KEY }}",
                     "GITLESS_DEBUG": "1",
-                    "GIFTLESS_CONFIG_TRANSFER_ADAPTERS_BASIC_OPTIONS_STORAGE_OPTIONS_BUCKET_NAME": "${{ secrets.AWS_S3_BUCKET_NAME }}"
+                    "GIFTLESS_TRANSFER_ADAPTERS_basic_options_storage_options_bucket_name": "${{ secrets.AWS_S3_BUCKET_NAME }}"
                   },
                   "ports": {
                     "8080": "HTTP"
