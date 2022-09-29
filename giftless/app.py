@@ -20,7 +20,6 @@ def init_app(app=None, additional_config=None):
 
     config.configure(app, additional_config=additional_config)
 
-    print(os.environ)
     # Configure logging
     if os.environ.get('GIFTLESS_DEBUG'):
         level = logging.DEBUG

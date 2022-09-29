@@ -5,7 +5,7 @@ env:
   AWS_LIGHTSAIL_SERVICE_NAME: giftless
   REGISTRY: 421301571121.dkr.ecr.us-east-1.amazonaws.com
   REPOSITORY: giftless
-  GITLESS_CONFIG_STR: ${{ secrets.GITLESS_CONFIG_STR }}
+  GITLESS_CONFIG_STR: '${{ secrets.GITLESS_CONFIG_STR }}'
 jobs:
   deploy:
     name: Deploy
