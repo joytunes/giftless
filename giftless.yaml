@@ -1,0 +1,17 @@
+{
+  "AUTH_PROVIDERS": [
+    "giftless.auth.allow_anon:read_write"
+  ],
+  "TRANSFER_ADAPTERS": {
+    "basic": {
+      "factory": "giftless.transfer.basic_external:factory",
+      "options": {
+        "storage_class": "giftless.storage.amazon_s3:AmazonS3Storage",
+        "storage_options": {
+          "bucket_name": "REPLACE_THIS",
+          "path_prefix": "lfs"
+        }
+      }
+    }
+  }
+}

@@ -34,6 +34,8 @@ RUN pip install /wheels/*.whl
 
 # Copy project code
 COPY . /app
+COPY giftless.yaml /app/giftless.yaml
+ENV GIFTLESS_CONFIG_FILE /app/giftless.yaml
 RUN pip install -e /app
 
 ARG USER_NAME=giftless
