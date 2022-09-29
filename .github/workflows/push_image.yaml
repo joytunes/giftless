@@ -75,7 +75,7 @@ jobs:
             }' \
             --public-endpoint='{
                 "containerName": "${{ env.AWS_LIGHTSAIL_SERVICE_NAME }}",
-                "containerPort": "80",
+                "containerPort": 80,
                 "healthCheck": {
                   "healthyThreshold": 2,
                   "intervalSeconds": 60,
