@@ -69,13 +69,13 @@ jobs:
                     "GITLESS_DEBUG": "1"
                   },
                   "ports": {
-                    "80": "HTTP"
+                    "8080": "HTTP"
                   }
                 }
             }' \
             --public-endpoint='{
                 "containerName": "${{ env.AWS_LIGHTSAIL_SERVICE_NAME }}-pod",
-                "containerPort": 80,
+                "containerPort": 8080,
                 "healthCheck": {
                   "healthyThreshold": 2,
                   "intervalSeconds": 60,

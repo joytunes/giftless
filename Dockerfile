@@ -53,5 +53,5 @@ ENV UWSGI_MODULE "giftless.wsgi_entrypoint"
 
 ENTRYPOINT ["tini", "uwsgi", "--"]
 
-CMD ["--http", "0.0.0.0:80", "-M", "-T", "--threads", "2", "-p", "2", \
+CMD ["--http", "0.0.0.0:8080", "-M", "-T", "--threads", "2", "-p", "2", \
      "--manage-script-name", "--callable", "app"]
