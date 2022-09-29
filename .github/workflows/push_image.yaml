@@ -63,7 +63,7 @@ jobs:
             --containers='{
                 "${{ env.AWS_LIGHTSAIL_SERVICE_NAME }}": {
                   "image": "${{ env.REGISTRY }}/${{ env.REPOSITORY }}:latest",
-                  "command": "-M -T --threads 2 -p 2 --manage-script-name --callable app --http 0.0.0.0:80"
+                  "command": "-M -T --threads 2 -p 2 --manage-script-name --callable app --http 0.0.0.0:80",
                   "environment": {
                     "AWS_ACCESS_KEY_ID": "${{ secrets.AWS_ACCESS_KEY_ID }}",
                     "AWS_SECRET_ACCESS_KEY": "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
