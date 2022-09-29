@@ -18,8 +18,8 @@ def init_app(app=None, additional_config=None):
     if app is None:
         app = Flask(__name__)
 
+    print(os.environ)
     config.configure(app, additional_config=additional_config)
-
     # Configure logging
     if os.environ.get('GIFTLESS_DEBUG'):
         level = logging.DEBUG
