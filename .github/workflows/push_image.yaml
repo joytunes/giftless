@@ -59,7 +59,7 @@ jobs:
       - name: Push and Deploy
         run: |
           aws lightsail create-container-service-deployment --service-name ${{ env.AWS_LIGHTSAIL_SERVICE_NAME }} \
-            --containers='${{ env.AWS_LIGHTSAIL_SERVICE_NAME }}={image=${{ env.REGISTRY }}/${{ env.REPOSITORY }}:latest,environment={AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }},AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}},ports={80=HTTP}}' \
+            --containers='${{ env.AWS_LIGHTSAIL_SERVICE_NAME }}={image=${{ env.REGISTRY }}/${{ env.REPOSITORY }}:latest,environment={AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }},AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}},ports={5000=HTTP}}' \
             --public-endpoint='containerName=${{ env.AWS_LIGHTSAIL_SERVICE_NAME }},containerPort=5000,healthCheck={healthyThreshold=2,intervalSeconds=60,path=/health,successCodes=200,timeoutSeconds=5,unhealthyThreshold=2}'
       # This ugly bit is necessary if you don't want your cache to grow forever
       # until it hits GitHub's limit of 5GB.
