@@ -54,8 +54,6 @@ jobs:
           tags: ${{ env.REGISTRY }}/${{ env.REPOSITORY }}:${{ github.sha }},${{ env.REGISTRY }}/${{ env.REPOSITORY }}:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
-          secrets: |
-            "GIFTLESS_CONFIG_STR=${{ secrets.GIFTLESS_CONFIG_STR }}"
       - name: Push and Deploy
         run: |
           aws lightsail create-container-service-deployment \
@@ -66,7 +64,8 @@ jobs:
                   "environment": {
                     "AWS_ACCESS_KEY_ID": "${{ secrets.AWS_ACCESS_KEY_ID }}",
                     "AWS_SECRET_ACCESS_KEY": "${{ secrets.AWS_SECRET_ACCESS_KEY }}",
-                    "GITLESS_DEBUG": "1"
+                    "GITLESS_DEBUG": "1",
+                    "GIFTLESS_CONFIG_STR": "'${{ secrets.GIFTLESS_CONFIG_STR }}'"
                   },
                   "ports": {
                     "8080": "HTTP"
